@@ -1,0 +1,38 @@
+﻿<form [formGroup]="configureGithubForm" (ngSubmit)="onSubmitConfigureGithub()" novalidate>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="username">Github Username</label>
+            <input type="text" class="form-control" formControlName="username" placeholder="Github username" />
+            <div *ngIf="configureGithubForm.controls['username'].touched && configureGithubForm.controls['username'].hasError('required')" class="alert alert-danger">
+                Username is required
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="password">Github Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Github password" />
+            <div *ngIf="configureGithubForm.controls['password'].touched && configureGithubForm.controls['password'].hasError('required')" class="alert alert-danger">
+                Password is required
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="url">Github URL</label>
+            <input type="url" class="form-control" formControlName="url" placeholder="Github URL" />
+            <div *ngIf="configureGithubForm.controls['url'].touched && configureGithubForm.controls['url'].hasError('required')" class="alert alert-danger">
+                URL is required
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="repoName">Github Repository Name</label>
+            <input type="text" class="form-control" formControlName="repoName" placeholder="Github Repository Name" />
+            <div *ngIf="configureGithubForm.controls['repoName'].touched && configureGithubForm.controls['repoName'].hasError('required')" class="alert alert-danger">
+                Repository Name is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!configureGithubForm.valid">Save</button>
+        <button type="reset" class="btn btn-primary">Reset</button>
+    </div>
+</form>
